@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cleared_at: 2015-01-07 15:50:46
+  reconciled_at: 2015-01-07 15:50:46
+  account_id: 1
+  amount: 9.99
+  vendor_id: 1
+  category_id: 1
+  notes: MyText
+  split_id: 1
+
+two:
+  cleared_at: 2015-01-07 15:50:46
+  reconciled_at: 2015-01-07 15:50:46
+  account_id: 1
+  amount: 9.99
+  vendor_id: 1
+  category_id: 1
+  notes: MyText
+  split_id: 1

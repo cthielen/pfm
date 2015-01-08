@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cleared at:</strong>
+  <%= @transaction.cleared_at %>
+</p>
+
+<p>
+  <strong>Reconciled at:</strong>
+  <%= @transaction.reconciled_at %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @transaction.account_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @transaction.amount %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @transaction.vendor_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @transaction.category_id %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @transaction.notes %>
+</p>
+
+<p>
+  <strong>Split:</strong>
+  <%= @transaction.split_id %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
