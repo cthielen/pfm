@@ -4,7 +4,13 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    if params[:q]
+      @transactions = Transaction.where(vendor_id: Vendor.where("name like ?", "%#{params[:q]}%").select(:id))
+    elsif params[:startdate] and params[:enddate]
+      @transactions = Transaction.where("created_at >= ? and created_at <= ?", "#{params[:startdate]}", "#{params[:enddate]}")
+    else
+      @transactions = Transaction.all
+    end
   end
 
   # GET /transactions/1

@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore node_modules/. Let them run 'npm install' themselves.
+/node_modules

@@ -26,7 +26,7 @@ namespace :csv do
       # Create transaction
       transaction = Transaction.new
 
-      transaction.cleared_at = transaction.reconciled_at = Date.parse(csv_date)
+      transaction.created_at = transaction.cleared_at = transaction.reconciled_at = Date.parse(csv_date)
       transaction.account = account
       transaction.category = category
       transaction.vendor = vendor

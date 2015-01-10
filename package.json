@@ -1,0 +1,13 @@
+{
+  "name": "pfm",
+  "description": "Installs NodeJS dependencies for Karma-based tests",
+  "author": "Christopher Thielen <cthielen@gmail.com>",
+  "dependencies": {
+    "karma": ">= 0.12.31",
+    "karma-jasmine": ">= 0.3.4",
+    "karma-safari-launcher": ">= 0.1.1",
+    "karma-coffee-preprocessor": ">= 0.2.1"
+  },
+  "engine": "node 0.10.35",
+  "private": true
+}
