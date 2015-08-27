@@ -1,8 +1,8 @@
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require turbolinks
 
-//= require angular
-//= require angular-route
-//= require main
+//= require js-routes
 
-//= require_tree .
+//= require toastr.min

@@ -1,0 +1,32 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+
+@import "_variables";
+@import "bootstrap";
+@import "_bootswatch";
+
+@import "toastr";
+
+@import "scaffolds";
+
+body {
+  padding-top: 80px;
+}
+
+.sidebar {
+  background-color: rgb(236, 240, 241);
+
+  a {
+    color: rgb(44, 62, 80);
+
+    &:hover {
+      color: #fff !important;
+      background-color: #3a555f !important;
+    }
+  }
+
+  .active > a {
+    color: #fff;
+    background-color: #428bca;
+  }
+}

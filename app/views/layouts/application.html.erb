@@ -1,16 +1,67 @@
 <!DOCTYPE html>
-<html ng-app="pfm">
-<head>
-  <title>PFM</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div ng-view>
-  <%= yield %>
-</div>
+    <title><%= content_for?(:title) ? yield(:title) : "PFM" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Devboard" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 
-</body>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+        <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+        <%= render 'layouts/messages' %>
+
+        <div class="container-fluid">
+          <div class="row">
+            <% if true #authenticated? %>
+              <div class="col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                  <%
+                    subnav_links = {}
+                    subnav_links['Developers'] = []
+                  %>
+                  <% { 'Overview' => '#', 'Projects' => '#' }.each do |text, url| %>
+                  <% if (controller_name == text.gsub(' ', '_').downcase) or (controller_name == 'site' and text.downcase == 'overview') %>
+                    <li class="active"><a href="<%= url %>"><%= text %></a></li>
+                  <% else %>
+                    <li><a href="<%= url %>"><%= text %></a></li>
+                  <% end %>
+                  <% end %>
+                </ul>
+                <ul class="nav nav-sidebar">
+                  <% if controller_name == 'meeting_notes' %>
+                    <li class="active"><%= link_to 'Meeting Notes', '' %></li>
+                  <% else %>
+                    <li><%= link_to 'Meeting Notes', '' %></li>
+                  <% end %>
+                  <li><a href="">Design Documents</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                  <li><a href="">Best Practices</a></li>
+                  <li><a href="">Useful Links</a></li>
+                </ul>
+              </div>
+            <% end %>
+            <div class="col-md-10 main">
+                <%= yield %>
+            </div>
+          </div> <!-- .row -->
+        </div> <!-- .container-fluid -->
+    </main>
+  </body>
 </html>
