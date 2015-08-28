@@ -44,11 +44,9 @@ end
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# For .qif file support
-gem 'qif'
-
 # For Bootstrap support
 gem 'bootstrap-sass', '~> 3.3.5'
 
-# For JS-accessible routes
-gem 'js-routes'
+# To handle cents and other currency-related matters
+gem 'money'
+gem 'monetize'
